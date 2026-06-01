@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trish Charlotte Muega | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #f5f9f7;        /* Soft Sage Mint tinted canvas */
+            --bg-card: #ffffff;        /* Pure white for crisp contrast */
+            --primary: #29a38d;        /* Deep Mint/Teal tone for main headers */
+            --primary-light: #e6f4f1;  /* Gentle teal background accents */
+            --accent: #52b788;         /* Fresh leaf green accent */
+            --text-dark: #2d3a37;      /* Clean off-black slate for premium reading */
+            --text-muted: #627570;     /* Soft slate grey for secondary labels */
+            --border: #e0ebd8;         /* Light organic border color */
+            --radius-lg: 20px;
+            --radius-md: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Navigation --- */
+        nav {
+            width: 100%;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand-logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Modern Hero Section --- */
+        header.hero-section {
+            min-height: 90vh;
+            padding: 120px 5% 60px 5%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .hero-intro h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-intro h1 span {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Unique Profile Showcase --- */
+        .showcase-area {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-card-frame {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 40px rgba(41, 163, 141, 0.06);
+            width: 100%;
+            max-width: 360px;
+            position: relative;
+            transform: rotate(2deg);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .photo-card-frame:hover {
+            transform: rotate(0deg) translateY(-5px);
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 380px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(180deg, #eef7f4, var(--primary-light));
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+        }
+
+        .photo-caption {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .photo-caption span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* Decorative Background Blob */
+        .organic-blob {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(82, 183, 136, 0.08) 0%, transparent 70%);
+            z-index: -1;
+            top: -10%;
+        }
+
+        /* --- Info Grid Split Section --- */
+        .info-split-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-block-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .block-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+        }
+
+        .focus-list, .fact-list {
+            list-style: none;
+        }
+
+        .focus-list li, .fact-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .focus-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+            background: #eef9f4;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .fact-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .fact-list li strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* --- Systems & Architecture Grid --- */
+        .projects-section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 5%;
+        }
+
+        .section-headline {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .section-subheadline {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .projects-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .project-dashboard-row {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 0.5fr 2.5fr 3fr;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.01);
+            transition: border 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-dashboard-row:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .proj-idx {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #d1e4de;
+            font-family: monospace;
+        }
+
+        .proj-core h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .proj-core p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .proj-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: #fafdfb;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border: 1px dashed #d6ede6;
+        }
+
+        .meta-cell {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-cell span.lbl {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .meta-cell span.val {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 2px;
+        }
+
+        /* --- Interactive Footer & Contacts --- */
+        footer {
+            background: var(--text-dark);
+            color: #ffffff;
+            padding: 60px 5% 40px 5%;
+            margin-top: 120px;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-cta p {
+            color: #a3b8b3;
+        }
+
+        .connect-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-connect {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+        }
+
+        .btn-connect:hover {
+            background: #ffffff;
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #819994;
+        }
+
+        /* Responsive Layout Tweaks */
+        @media (max-width: 968px) {
+            header.hero-section, .info-split-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-intro h1 { font-size: 2.8rem; }
+            .showcase-area { order: -1; margin-bottom: 20px; }
+            .badge-container { justify-content: center; }
+            .project-dashboard-row { grid-template-columns: 1fr; gap: 20px; }
+            .proj-idx { display: none; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand-logo">TCM.DEV</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#systems">Systems</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-intro">
+            <h1>Hi there 👋<br>I'm <span>Trish</span></h1>
+            <p class="hero-tagline">
+                An Information Technology student from Davao del Norte State College. I enjoy exploring the intersection of technology and creative design, focusing on building clean layouts and organizing data.
+            </p>
+            <div class="badge-container">
+                <span class="badge">Information Technology</span>
+                <span class="badge">DNSC Student</span>
+                <span class="badge">UI/UX & Systems</span>
+            </div>
+        </div>
+
+        <div class="showcase-area">
+            <div class="organic-blob"></div>
+            <div class="photo-card-frame">
+                <div class="image-wrapper">
+                    <img src="profile.png" alt="Trish Charlotte Muega">
+                </div>
+                <div class="photo-caption">
+                    Trish Charlotte Muega
+                    <span>BSIT Undergraduate</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="info-split-section">
+        <div class="info-block-card">
+            <div class="block-title">Current Focus</div>
+            <ul class="focus-list">
+                <li>UI/UX Design & Creative Layouts</li>
+                <li>Database Management</li>
+                <li>Foundational Web Development & Programming</li>
+            </ul>
+        </div>
+
+        <div class="info-block-card">
+            <div class="block-title">Fun Facts & Interests</div>
+            <ul class="fact-list">
+                <li><strong>Interests:</strong> Creative Design, Technology, and Digital Systems</li>
+                <li>Loves baking sweets and managing a small treats business in my free time 🍪</li>
+                <li>Passionate about continuous learning and constant self-improvement</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="systems" class="projects-section">
+        <h2 class="section-headline">Systems & Architecture</h2>
+        <p class="section-subheadline">A curated display of technical logs, database tracking, and application environments.</p>
+
+        <div class="projects-stack">
+            
+            <div class="project-dashboard-row">
+                <div class="proj-idx">01</div>
+                <div class="proj-core">
+                    <h3>Train Ticketing System</h3>
+                    <p>A desktop application designed to handle transport ticketing logs, automated fare inquiries, and transaction tracking. Implements localized interface design features to streamline ticketing desk operations.</p>
+                </div>
+                <div class="proj-meta-grid">
+                    <div class="meta-cell"><span class="lbl">Environment</span><span class="val">NetBeans IDE</span></div>
+                    <div class="meta-cell"><span class="lbl">Language</span><span class="val">Java OOP</span></div>
+                    <div class="meta-cell"><span class="lbl">Database Layer</span><span class="val">SQL / MySQL</span></div>
+                    <div class="meta-cell"><span class="lbl">Application</span><span class="val">Desktop Client</span></div>
+                </div>
+            </div>
+
+            <div class="project-dashboard-row">
+                <div class="proj-idx">02</div>
+                <div class="proj-core">
+                    <h3>RE:Green System</h3>
+                    <p>A web architecture blueprint focusing on eco-sustainability, tracking environmental metric data points, and coordinating localized green resources via a unified data model.</p>
+                </div>
+                <div class="proj-meta-grid">
+                    <div class="meta-cell"><span class="lbl">Front-end</span><span class="val">HTML / Layouts</span></div>
+                    <div class="meta-cell"><span class="lbl">Back-end</span><span class="val">PHP Server</span></div>
+                    <div class="meta-cell"><span class="lbl">Storage Core</span><span class="val">Relational DB</span></div>
+                    <div class="meta-cell"><span class="lbl">Platform</span><span class="val">Web Application</span></div>
+                </div>
+            </div>
+
+            <div class="project-dashboard-row">
+                <div class="proj-idx">03</div>
+                <div class="proj-core">
+                    <h3>SkillBridge System</h3>
+                    <p>An interactive directory layout connecting learning spaces and mapping student skill milestones. Leverages reliable schema relational tracking tools to bridge mentoring opportunities smoothly.</p>
+                </div>
+                <div class="proj-meta-grid">
+                    <div class="meta-cell"><span class="lbl">Front-end</span><span class="val">HTML / CSS / JS</span></div>
+                    <div class="meta-cell"><span class="lbl">Core Engine</span><span class="val">PHP Logic</span></div>
+                    <div class="meta-cell"><span class="lbl">Persistence</span><span class="val">Database Schema</span></div>
+                    <div class="meta-cell"><span class="lbl">Target Architecture</span><span class="val">Responsive Web</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-cta">
+                <h2>Get In Touch</h2>
+                <p>Right now, I'm continuously learning to bridge the gap between technical logic and user experience.</p>
+            </div>
+            <div class="connect-buttons">
+                <a href="mailto:muegatrish732@gmail.com" class="btn-connect">Email Me</a>
+                <a href="https://github.com/muegatrish732-lgtm" target="_blank" class="btn-connect">GitHub</a>
+                <a href="https://www.instagram.com/xxsweettrish?igsh=dnpxZm9iaWg4cWRp" target="_blank" class="btn-connect">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Trish Charlotte Muega. All rights reserved.</div>
+            <div>Built for unique showcase</div>
+        </div>
+    </footer>
+
+</body>
+</html>
